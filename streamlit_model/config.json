@@ -1,0 +1,15 @@
+{
+  "model_path": "./streamlit_model/model",
+  "tokenizer_path": "./streamlit_model/tokenizer",
+  "label_map": {
+    "negative": 0,
+    "neautral": 1,
+    "positive": 2
+  },
+  "max_length": 85,
+  "labels": [
+    "negative",
+    "neutral",
+    "positive"
+  ]
+}
