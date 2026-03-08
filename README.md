@@ -4,17 +4,17 @@ Automated comment analysis system for detecting toxicity and sentiment in Russia
 
 ## 📋 Table of Contents
 
-- [About](#about)
-- [Features](#features)
-- [Model Performance](#model-performance)
-- [Tech Stack](#tech-stack)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Interpreting Results](#interpreting-results)
-- [Notes](#Notes)
-- [Authors](#authors)
+- [About](#-about)
+- [Features](#-features)
+- [Model Performance](#-model-performance)
+- [Tech Stack](#-tech-stack)
+- [Requirements](#-requirements)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Interpreting Results](#-interpreting-results)
+- [Notes](#-notes)
+- [Authors](#-authors)
 
 ---
 
@@ -196,11 +196,18 @@ No automated tests included
 No license specified (educational use only)
 
 ## 👥 Authors
-N0Nameez — GitHub Profile
+
+**Vlad** — [N0Nameez](https://github.com/N0Nameez)
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/N0Nameez)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/yourusername)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your@email.com)
 
 <div align="center">
+**Repository:** [github.com/N0Nameez/study_repo/tree/main/4_course/tone_comments](https://github.com/N0Nameez/study_repo/tree/main/4_course/tone_comments)
 
 If you found this project helpful, please give it a ⭐ on GitHub!
 Made with ❤️ for Russian NLP community
-Educational Project — 2026
+
+*Educational Project — 2026*
 </div>
