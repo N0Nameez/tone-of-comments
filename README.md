@@ -1,80 +1,80 @@
-# 📊 Comment Analysis: Toxicity & Sentiment
+# 📊 Анализ комментариев: Токсичность и Тональность
 
-Automated comment analysis system for detecting toxicity and sentiment in Russian text using machine learning models.
+Автоматизированная система анализа комментариев для определения токсичности и тональности русскоязычного текста с использованием моделей машинного обучения.
 
-## 📋 Table of Contents
+## 📋 Оглавление
 
-- [About](#-about)
-- [Features](#-features)
-- [Model Performance](#-model-performance)
-- [Tech Stack](#-tech-stack)
-- [Requirements](#-requirements)
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [Project Structure](#-project-structure)
-- [Interpreting Results](#-interpreting-results)
-- [Notes](#-notes)
-- [Authors](#-authors)
-
----
-
-## 📝 About
-
-This project is a web application for comment analysis that determines:
-
-1. **Toxicity** — Probability that a comment contains insults, threats, or negative content (CNN model)
-2. **Sentiment** — Emotional tone of the text: positive, negative, or neutral (RuBERT model)
-
-Analysis results are stored in a MySQL database for monitoring and statistics.
-
-> ⚠️ **Note:** This is an educational project created for learning purposes.
+- [О проекте](#-о-проекте)
+- [Особенности](#-особенности)
+- [Производительность моделей](#-производительность-моделей)
+- [Стек технологий](#-стек-технологий)
+- [Требования](#-требования)
+- [Установка](#-установка)
+- [Использование](#-использование)
+- [Структура проекта](#-структура-проекта)
+- [Интерпретация результатов](#-интерпретация-результатов)
+- [Примечания](#-примечания)
+- [Авторы](#-авторы)
 
 ---
 
-## ✨ Features
+## 📝 О проекте
 
-- 🔍 Toxicity detection (0–1 scale)
-- 🎯 Sentiment classification (positive/negative/neutral)
-- 💾 Results persistence in MySQL database
-- 🖥️ User-friendly Streamlit web interface
-- 🚀 REST API for third-party integration
-- 🇷🇺 Russian language support
+Данный проект представляет собой веб-приложение для анализа комментариев, которое определяет:
+
+1. **Токсичность** — Вероятность того, что комментарий содержит оскорбления, угрозы или негативный контент (модель CNN)
+2. **Тональность** — Эмоциональная окраска текста: позитивная, негативная или нейтральная (модель RuBERT)
+
+Результаты анализа сохраняются в базу данных MySQL для мониторинга и сбора статистики.
+
+> ⚠️ **Примечание:** Это учебный проект, созданный в образовательных целях.
 
 ---
 
-## 📈 Model Performance
+## ✨ Особенности
 
-### Toxicity Model (CNN)
+- 🔍 Определение токсичности (шкала от 0 до 1)
+- 🎯 Классификация тональности (позитивная/негативная/нейтральная)
+- 💾 Сохранение результатов в базу данных MySQL
+- 🖥️ Удобный веб-интерфейс на базе Streamlit
+- 🚀 REST API для сторонних интеграций
+- 🇷🇺 Поддержка русского языка
 
-| Metric | Score |
-|--------|-------|
-| Accuracy | 0.8848 |
+---
+
+## 📈 Производительность моделей
+
+### Модель токсичности (CNN)
+
+| Метрика | Значение |
+|---------|----------|
+| Точность (Accuracy) | 0.8848 |
 | F1-Score (Macro Avg) | 0.8708 |
 
-### Sentiment Model (RuBERT)
+### Модель тональности (RuBERT)
 
-| Metric | Score |
-|--------|-------|
-| Accuracy | 0.8079 |
+| Метрика | Значение |
+|---------|----------|
+| Точность (Accuracy) | 0.8079 |
 | F1-Score (Macro Avg) | 0.8067 |
 
 ---
 
-## 🛠 Tech Stack
+## 🛠 Стек технологий
 
-| Component | Technology |
+| Компонент | Технология |
 |-----------|------------|
 | Backend | FastAPI |
 | Frontend | Streamlit |
-| Toxicity Model | TensorFlow + CNN |
-| Sentiment Model | PyTorch + RuBERT |
-| Database | MySQL |
-| Tokenization | Transformers (Hugging Face) |
-| API Documentation | Swagger/OpenAPI |
+| Модель токсичности | TensorFlow + CNN |
+| Модель тональности | PyTorch + RuBERT |
+| База данных | MySQL |
+| Токенизация | Transformers (Hugging Face) |
+| Документация API | Swagger/OpenAPI |
 
 ---
 
-## 📦 Requirements
+## 📦 Требования
 
 ```txt
 fastapi
@@ -87,31 +87,31 @@ sqlalchemy
 pymysql
 ```
 
-## 🚀 Installation
-1. Clone the Repository
+## 🚀 Установка
+1. Клонируйте репозиторий
 
-```txt
-git clone https://github.com/N0Nameez/study_repo.git
+```bash
+git clone [https://github.com/N0Nameez/study_repo.git](https://github.com/N0Nameez/study_repo.git)
 cd study_repo/4_course/tone_comments
 ```
 
-2. Create Virtual Environment
+2. Создайте виртуальное окружение
 
-```txt
+```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Для Windows: venv\Scripts\activate
 ```
 
-3. Install Dependencies
+3. Установите зависимости
 
-```txt
+```bash
 pip install -r requirements.txt
 ```
 
-4. Set Up Database
-Create MySQL database and table:
+4. Настройте базу данных
+Создайте базу данных MySQL и таблицу:
 
-```txt
+```sql
 CREATE DATABASE comments_db;
 USE comments_db;
 
@@ -124,91 +124,89 @@ CREATE TABLE comments (
 );
 ```
 
-5. Configure Database Connection
-Update api.py with your credentials:
+5. Настройте подключение к БД
+Обновите файл api.py, указав ваши учетные данные:
 
-```txt
+```python
 DATABASE_URL = "mysql+pymysql://root:1234@localhost:3306/comments_db"
 ```
 
-6. Verify Model Files
-Ensure the following files are present in the project directory:
+6. Проверьте файлы моделей
+Убедитесь, что в директории проекта присутствуют следующие файлы:
 
 ```txt
-cnn_toxicity.h5           # CNN model for toxicity
-tokenizer_tox.pkl         # CNN tokenizer
+cnn_toxicity.h5           # CNN модель для токсичности
+tokenizer_tox.pkl         # Токенизатор для CNN
 streamlit_model/
-    config.json           # RuBERT configuration
+    config.json           # Конфигурация модели RuBERT
 ```
 
-## 🏃 Usage
-1. Start API Server
+## 🏃 Использование
+1. Запустите API сервер
 
-```txt
+```bash
 uvicorn api:app --reload --host 0.0.0.0 --port 8000
 ```
 
-2. Start Streamlit Interface (new terminal)
+2. Запустите интерфейс Streamlit (в новом терминале)
 
-```txt
+```bash
 streamlit run main.py
 ```
 
-3. Open in Browser
+3. Откройте в браузере
 
-## 📁 Project Structure
+## 📁 Структура проекта
 
 ```txt
 tone-of-comments/
-├── api.py                    # FastAPI backend server
-├── main.py                   # Streamlit frontend interface
-├── cnn_toxicity.h5           # Trained CNN model (toxicity)
-├── tokenizer_tox.pkl         # Tokenizer for CNN model
+├── api.py                    # Backend-сервер на FastAPI
+├── main.py                   # Frontend-интерфейс на Streamlit
+├── cnn_toxicity.h5           # Обученная CNN модель (токсичность)
+├── tokenizer_tox.pkl         # Токенизатор для CNN модели
 ├── streamlit_model/
-│   └── config.json           # RuBERT model configuration
-├── requirements.txt          # Python dependencies
-├── tone_of_comments.ipynb    # Jupyter notebook (training/analysis)
-└── README.md                 # Project documentation
+│   └── config.json           # Конфигурация модели RuBERT
+├── requirements.txt          # Python-зависимости
+├── tone_of_comments.ipynb    # Jupyter ноутбук (обучение/анализ)
+└── README.md                 # Документация проекта
 ```
 
-## 📊 Interpreting Results
-Toxicity Score
+## 📊 Интерпретация результатов
+Оценка токсичности (Toxicity Score)
 
-| Range | Color | Meaning |
-|-------|-------|---------|
-| 0.0 – 0.3 | 🟢 Green | Low toxicity (safe) |
-| 0.3 – 0.7 | 🟠 Orange | Moderate toxicity (review needed) |
-| 0.7 – 1.0 | 🔴 Red | High toxicity (block/reject) |
+| Диапазон | Цвет | Значение |
+|----------|------|----------|
+| 0.0 – 0.3 | 🟢 Зеленый | Низкая токсичность (безопасно) |
+| 0.3 – 0.7 | 🟠 Оранжевый | Умеренная токсичность (требуется проверка) |
+| 0.7 – 1.0 | 🔴 Красный | Высокая токсичность (блокировка/отклонение) |
 
-Sentiment Labels
+Метки тональности (Sentiment Labels)
 
-| Label | Color | Description |
-|-------|-------|-------------|
-| positive | 🟢 Green | Positive sentiment |
-| negative | 🔴 Red | Negative sentiment |
-| neutral | ⚪ Gray | Neutral sentiment |
+| Метка | Цвет | Описание |
+|-------|------|----------|
+| positive | 🟢 Зеленый | Позитивная тональность |
+| negative | 🔴 Красный | Негативная тональность |
+| neutral | ⚪ Серый | Нейтральная тональность |
 
-## 📝 Notes
-This is an educational project — not intended for production use
-Models are trained on Russian language data
-No Docker deployment available (run locally)
-No automated tests included
-No license specified (educational use only)
+## 📝 Примечания
+Это образовательный проект — не предназначен для использования в продакшене.
+Модели обучены на русскоязычных данных.
+Деплой через Docker не предусмотрен (запуск локально).
+Автоматические тесты не включены.
+Лицензия не указана (только для образовательного использования).
 
-## 👥 Authors
+## 👥 Авторы
 
-**Vlad** — [N0Nameez](https://github.com/N0Nameez)
+**Влад** — [N0Nameez](https://github.com/N0Nameez)
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/N0Nameez)
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/d3v4stated)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:noname10lvl@yandex.ru)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/vladeveloper)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:fedenev.vladis@yandex.com)
 
 <div align="center">
 
-**Repository:** [github.com/N0Nameez/study_repo/tree/main/4_course/tone_comments](https://github.com/N0Nameez/study_repo/tree/main/4_course/tone_comments)
+**Репозиторий:** [github.com/N0Nameez/study_repo/tree/main/4_course/tone_comments](https://github.com/N0Nameez/study_repo/tree/main/4_course/tone_comments)
 
-If you found this project helpful, please give it a ⭐ on GitHub!
-Made with ❤️ for Russian NLP community
-
-*Educational Project — 2026*
+Если этот проект оказался вам полезен, пожалуйста, поставьте ⭐ на GitHub!
+Сделано с ❤️ для русскоязычного NLP-сообщества
 </div>
